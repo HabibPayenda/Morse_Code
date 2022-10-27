@@ -34,3 +34,28 @@ def decode_char(str)
 end
 
 puts decode_char '.-'
+
+def decode_word(str)
+  words = str.split
+  word = ''
+  words.each do |item|
+    char = decode_char item
+    word += char.to_s
+  end
+  word
+end
+
+puts decode_word '-- -.--'
+
+def decode_sentence(str)
+  words = str.split('   ')
+  sentence = ''
+  words.each do |item|
+    word = decode_word item
+    sentence += word
+    sentence += ' '
+  end
+  sentence
+end
+
+puts decode_sentence '-- -.--   -. .- -- .'
